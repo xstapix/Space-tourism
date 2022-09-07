@@ -1,38 +1,393 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Barlow Condensed', sans-serif;
+  background-color: #0B0D17;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background-home{
+  background: url('./home/background-home-desktop.jpg') no-repeat right;
+  background-size: contain;
+  height: 100vh;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.background-destinations{
+  background: url('./destination/background-destination-desktop.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+.background-crew{
+  background: url('./crew/background-crew-desktop.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+.background-technology{
+  background: url('./technology/background-technology-desktop.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+header{
+  position: fixed;
+  width: 100%;
+  height: 136px;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 100;
+}
+.container_header{
+  position: relative;
+  width: 1385px;
+  margin: 40px auto;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo{
+  margin: 24px 0;
+  cursor: pointer;
+}
+.hamburger, .close{
+  display: none;
+}
+.line{
+  position: absolute;
+  z-index: 10;
+  left: 134px;
+  width: 472px;
+  height: 1px;
+  background-color: #FFFFFF;
+  opacity: 0.25;
+}
+nav{
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(81.5485px);
+}
+ul{
+  margin: 0;
+  list-style-type: none;
+}
+nav ul{
+  display: flex;
+  padding: 0 117px 0 123px;
+}
+nav ul li{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 96px;
+  margin-right: 48px;
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.2px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.active::before{
+  display: block;
+	position: absolute;
+  left: 0;
+  bottom: 0px;
+	width: 100%;
+	height: 3px;
+	background-color: #FFFFFF;
+	content: "";
+}
+nav ul li::after{
+  display: block;
+	position: absolute;
+  left: 0;
+  bottom: 0px;
+	width: 0;
+	height: 3px;
+	background-color: #FFFFFF;
+	content: "";
+  opacity: 0.5;
+}
+nav ul li:hover:after,
+nav ul li:active:after {
+	width: 100%;
+}
+nav ul li span{
+  font-weight: 700;
+  margin-right: 11px;
+}
+.main-container{
+  position: relative;
+  z-index: 2;
+  width: 1100px;
+  margin: auto;
+}
+.home{
+  display: flex;
+  padding-top: 45vh;
+  justify-content: space-between;
+}
+.text{
+  margin-bottom: 24px;
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 4.725px;
+  color: #D0D6F9;
+}
+article span{
+  font-family: 'Bellefair';
+  font-weight: 400;
+  font-size: 150px;
+  line-height: 172px;
+  color: #FFFFFF;
+}
+article p{
+  width: 444px;
+  color: #D0D6F9;
+  font-size: 18px;
+  font-family: 'Barlow', sans-serif;
+  line-height: 32px;
+}
+.explore{
+  margin-top: auto;
+  width: 274px;
+  height: 274px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  font-family: 'Bellefair';
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  letter-spacing: 2px;
+  color: #0B0D17;
+  cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
+.explore:hover {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 70px transparent;
 }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(151, 151, 151, 0.56); }
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+.pickYour{
+  padding-top: 20vh;
+  font-family: 'Barlow Condensed';
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 4.725px;
+  text-transform: uppercase;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  color: #FFFFFF;
+}
+.pickYour span {
+  margin-right: 28px;
+  font-family: 'Barlow Condensed';
+  font-weight: 700;
+  font-size: 28px;
+  color: #FFFFFF;
+  opacity: 0.25;
+}
+.planetIMG{
+  margin: 97px 0 0 50px;
+}
+.planets-list {
+  position: absolute;
+  display: flex;
+  margin-top: 11vh;
+  margin-left: 666px;
+  font-family: 'Barlow Condensed';
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 2.7px;
+  color: #FFFFFF;
+}
+.planets-list li {
+  position: relative;
+  margin-right: 35px;
+  z-index: 100;
+  cursor: pointer;
+}
+.planets-list li::after{
+  display: block;
+	position: absolute;
+  left: 0;
+  top: 30px;
+	width: 0;
+	height: 3px;
+	background-color: #FFFFFF;
+	content: "";
+  opacity: 0.5;
+}
+.planets-list li:hover:after,
+.planets-list li:active:after {
+	width: 100%;
+}
+.activePlanet::before{
+  display: block;
+	position: absolute;
+  left: 0;
+  top: 30px;
+	width: 100%;
+	height: 3px;
+	background-color: #FFFFFF;
+	content: "";
+}
+.planet{
+  margin-top: 18vh;
+}
+.planet span{
+  font-family: 'Bellefair';
+  font-weight: 400; 
+  font-size: 100px;
+  line-height: 115px;
+  color: #FFFFFF;
+  
+  text-transform: uppercase;
+}
+.line_under-planet{
+  margin-top: 54px;
+  width: 100%;
+  height: 1px;
+  background: #383B4B;
+}
+.planet-info{
+  display: flex;
+}
+.planet-info div{
+  margin-right: 79px;
+  margin-top: 28px;
+}
+.planet-info span{
+  font-family: 'Barlow Condensed';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 2.3625px;
+  text-transform: uppercase;
+  color: #D0D6F9;
+}
+.km{
+  margin-top: 12px;
+  font-family: 'Bellefair';
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.job{
+  font-family: 'Bellefair';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+.team{
+  margin-top: 15vh;
+}
+.team div{
+  margin-top: 15px;
+  font-family: 'Bellefair';
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 64px;
+  text-transform: uppercase;
+  
+  color: #FFFFFF;
+}
+.team article p{
+  margin-top: 27px;
+  font-family: 'Barlow';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+
+  color: #D0D6F9;
+}
+.peopleIMG{
+  height: 712px;
+}
+.dots{
+  position: absolute;
+  top: 89vh;
+  display: flex;
+}
+.dot{
+  margin-right: 24px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.17;
+  cursor: pointer;
+}
+.dot:hover{
+  opacity: 0.5; 
+}
+.activeDot{
+  opacity: 1;
+}
+.technology-container{
+  position: relative;
+  z-index: 2;
+  width: 1384px;
+  margin: auto;
+  padding-left: 281px;
+}
+.just_technology{
+  font-family: 'Barlow Condensed';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.7px;
+
+  color: #D0D6F9;
+}
+.technology-margin{
+  margin-left: -150px;
+}
+.slider{
+  position: absolute;
+  left: 130px;
+  top: 39vh;
+}
+.circle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: none;
+  border: 1px #ffffff2a solid;
+  cursor: pointer;
+  
+  font-family: 'Bellefair';
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+.circle:hover{
+  border: 1px #ffffff solid;
+}
+.activeCircle{
+  color: #0B0D17;
+  background-color: #FFFFFF;
 }
